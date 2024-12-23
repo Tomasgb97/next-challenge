@@ -9,7 +9,9 @@ const config: Config = {
   theme: {
     colors:{
       'header-gray': '#EEEEEE',
-      'footer-gray': '#404040'
+      'footer-gray': '#404040',
+      'accent-gray': '#8F8F8F',
+      'accent-black': '#3B3B3B'
     },
     extend: {
       backgroundImage: {
