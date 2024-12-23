@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {  Archivo } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/header/Header";
+import Footer from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const archivo = Archivo({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Apply Digital Test",
@@ -16,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={archivo.className}>
+      <Header/>{children}
+      <Footer/></body>
+      
     </html>
   );
 }
