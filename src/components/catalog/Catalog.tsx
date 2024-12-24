@@ -1,19 +1,28 @@
 import React from 'react';
 import Container from './Container';
-import mockupData from '@/utils/mockData';
 import CatalogItem from './CatalogItem';
 import GenreSection from './GenreSection';
+import { Game } from '@/utils/endpoint';
 
-const Catalog: React.FC = () => {
+
+interface CatalogProps{
+  games: Game[] | null;
+  filters: string[]
+}
+const Catalog: React.FC<CatalogProps> = ({games, filters}) => {
     return (
         <div className='w-full'>
-        <GenreSection/>
+        <GenreSection filters={filters}/>
         <div className='py-7'>
-        <Container>
-          {mockupData.map((item) => (
-            <CatalogItem description={item.description} genre={item.genre} id={item.id} imageUrl={item.image} isNew={item.isNew} name={item.name} price={item.price} key={item.id}/>
+         
+          <Container>
+          {games && games.map((item) => (
+            <CatalogItem description={item.description} genre={item.genre} id={item.id} image={item.image} isNew={item.isNew} name={item.name} price={item.price} key={item.id}/>
           ))}
+  
         </Container>
+        
+        
         </div>
         
         </div>
