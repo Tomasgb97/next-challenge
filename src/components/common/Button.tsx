@@ -9,7 +9,8 @@ interface ButtonProps {
 }
 
 const buttonTypes: { [key: string]: string } = {
-    outline: 'border border-1 border-accent-black hover:bg-accent-gray/10',
+    outline: 'border border-1 border-accent-black hover:bg-accent-gray/10 ',
+    main: 'bg-main-gray text-[#FFFFFF]'
 };
 
 
@@ -19,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({ onClick, label, disabled = false, type 
     
     
     return (
-        <button className={`w-full min-h-14 rounded-lg font-bold text-accent-black ${typeClass}`} onClick={onClick} disabled={disabled}>
+        <button className={`w-full min-h-14 rounded-lg font-bold   ${typeClass}`} onClick={onClick} disabled={disabled}>
             {label}
         </button>
     );
