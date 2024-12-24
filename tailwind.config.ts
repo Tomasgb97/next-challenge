@@ -10,6 +10,7 @@ const config: Config = {
     colors:{
       'header-gray': '#EEEEEE',
       'footer-gray': '#404040',
+      'title-gray': '#585660',
       'accent-gray': '#8F8F8F',
       'accent-black': '#3B3B3B'
     },
