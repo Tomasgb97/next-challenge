@@ -29,7 +29,7 @@ const GenreSelector: React.FC = () => {
 
 
     return (
-        <div className='w-full  flex justify-end'>
+        <div className='w-full  flex justify-start md:justify-end'>
             <div className='flex'>
             <span className='text-md font-bold select-none'>Genre</span>
             <div className='w-px bg-accent-black h-full mx-3'></div>
