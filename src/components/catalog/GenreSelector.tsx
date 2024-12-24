@@ -2,11 +2,11 @@
 import { useRouter, useSearchParams } from 'next/navigation'
 import React from 'react';
 
+interface GenreSelectorProps{
+  filters: string[];
+}
 
-
-const GenreSelector: React.FC = () => {
-
-
+const GenreSelector: React.FC<GenreSelectorProps> = ({filters}) => {
    const router = useRouter()
    const searchParams = useSearchParams();
 
@@ -14,9 +14,9 @@ const GenreSelector: React.FC = () => {
 
 
    const handleChange = (event: { target: { value: any; }; }) => {
+    debugger
     const newGenre = event.target.value;
 
-    
     const params = new URLSearchParams(searchParams.toString());
     if (newGenre && newGenre != 'All') {
       params.set('genre', newGenre);
@@ -35,13 +35,7 @@ const GenreSelector: React.FC = () => {
             <div className='w-px bg-accent-black h-full mx-3'></div>
             <select onChange={((e)=> handleChange(e))} value={selectedGenre}  className='border-l-1 min-w-40 text-md text-accent-gray focus-visible:outline-none'>
                     <option value="All">All</option>
-                    <option value="History">History</option>
-                    <option value="Science">Science</option>
-                    <option value="Fiction">Fiction</option>
-                    <option value="Biography">Biography</option>
-                    <option value="Fantasy">Fantasy</option>
-                    <option value="Mystery">Mystery</option>
-                    <option value="Battle Royale"> Battle Royale</option>
+                    {filters.map((filter, index)=>{return(<option key={index} value={filter} >{filter}</option>)})}
             </select>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ContainerProps{
-    children: React.ReactNode[]
+    children: React.ReactNode[] | null;
 }
 
 const Container: React.FC<ContainerProps> = ({ children }: ContainerProps) => {
