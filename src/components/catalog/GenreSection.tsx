@@ -3,7 +3,7 @@ import GenreSelector from './GenreSelector';
 
 const GenreSection: React.FC = () => {
     return (
-        <div className="genre-section py-7 ">
+        <div className="gap-8 flex flex-col py-7 ">
             <h2 className='text-4xl font-bold'>TOP SELLERS</h2>
 
             <div className='w-full'>
