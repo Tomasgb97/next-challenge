@@ -25,8 +25,8 @@ const Catalog: React.FC<CatalogProps> = async({genre, page}) => {
         <GenreSection filters={categories}/>
         <div className='py-7'>    
           <Container>
-          {games && games.map((item: Game) => (
-            <CatalogItem description={item.description} genre={item.genre} id={item.id} image={item.image} isNew={item.isNew} name={item.name} price={item.price} key={item.id}/>
+          {games.length > 0 && games.map((item: Game) => (
+            <CatalogItem game={item} key={item.id}/>
           ))}
         </Container>
       
