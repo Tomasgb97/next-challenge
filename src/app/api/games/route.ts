@@ -22,9 +22,10 @@ export async function GET(request: Request) {
 
   const fromIndex = (page - 1) * ITEMS_PER_PAGE;
   const toIndex = page * ITEMS_PER_PAGE;
+  const totalGamesOnThisGenre = games.length;
   games = games.slice(fromIndex, toIndex);
 
-  const totalPages = Math.ceil(allGames.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(totalGamesOnThisGenre / ITEMS_PER_PAGE);
   const currentPage = page;
 
   return Response.json({ games, availableFilters, totalPages, currentPage });

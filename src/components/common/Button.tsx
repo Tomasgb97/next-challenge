@@ -2,10 +2,10 @@
 import React, { useMemo } from 'react';
 
 interface ButtonProps {
-    onClick: () => void;
+    onClick?: () => void;
     label: string;
     disabled?: boolean;
-    type? : string;
+    type? : 'main' | 'outline';
     status?: string;
 }
 
