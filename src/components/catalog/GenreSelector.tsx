@@ -12,24 +12,23 @@ const GenreSelector: React.FC<GenreSelectorProps> = ({filters}) => {
 
    const selectedGenre = searchParams.get('genre')  || 'All' ;
 
-
    const handleChange = (event: { target: { value: any; }; }) => {
-    debugger
+
     const newGenre = event.target.value;
 
-    const params = new URLSearchParams(searchParams.toString());
     if (newGenre && newGenre != 'All') {
-      params.set('genre', newGenre);
+      
+      router.push(`/?genre=${newGenre}&page=1`)
     } else {
-      params.delete('genre');
+      router.push('/');
     }
-    router.push(`?${params.toString()}`);
   };
    
 
 
     return (
         <div className='w-full  flex justify-start md:justify-end'>
+        
             <div className='flex'>
             <span className='text-md font-bold select-none'>Genre</span>
             <div className='w-px bg-accent-black h-full mx-3'></div>
