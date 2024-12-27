@@ -18,7 +18,7 @@ const page = (await (searchParams)).page
     <main className='flex min-h-screen flex-col items-center justify-between'>
       
       <div className="w-full px-6 lg:px-32">
-        <Suspense key={genre} fallback={<Loading></Loading>}>
+        <Suspense key={`${genre}-${page}`} fallback={<Loading></Loading>}>
         <Catalog page={page} genre={genre}></Catalog>
         </Suspense>
         
