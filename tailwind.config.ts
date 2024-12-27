@@ -13,6 +13,7 @@ const config: Config = {
       'main-gray': '#585660',
       'accent-gray': '#8F8F8F',
       'accent-black': '#3B3B3B',
+      'alert-red': '#ff1200bf'
     },
     extend: {
       backgroundImage: {
