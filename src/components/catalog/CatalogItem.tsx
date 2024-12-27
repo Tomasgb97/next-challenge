@@ -1,7 +1,8 @@
 'use client'
-import React from 'react';
+import React, { useMemo } from 'react';
 import Button from '../common/Button';
 import { Game } from '@/utils/endpoint';
+import { useCartStore } from '@/services/stores/cart-store';
 
 
 
@@ -9,8 +10,23 @@ const NewBadge = () =>{
     return( <div className='absolute left-3 top-3 px-3 py-2 rounded-md text-md bg-[#F5F5F4]'>
         New
     </div>)
+
 }
 const CatalogItem: React.FC<Game> = ({ id, genre, name, price, image, isNew }) => {
+
+    const {removeItem, addItem, items} = useCartStore();
+
+    const isAddedToCart = useMemo(()=>{
+        return items.find(item => item.id == id)
+    }, [items]);
+
+    const handleClick=() => {
+        if(isAddedToCart){
+            removeItem(id)
+        }else{
+            addItem(id)
+        }
+    }
     return (
     
             <div className="w-full flex flex-col gap-5 max-w-96  p-6 rounded-2xl border border-0.5 border-accent-gray " key={id}>
@@ -27,7 +43,8 @@ const CatalogItem: React.FC<Game> = ({ id, genre, name, price, image, isNew }) =
                 </div>
                 
             </div>
-            <Button type="outline" onClick={()=>{}} label='ADD TO CART'></Button>
+
+            <Button status={isAddedToCart ? 'alert' : ''}  type="outline" onClick={handleClick} label={!isAddedToCart ? 'ADD TO CART' : 'REMOVE ITEM'}></Button>
         </div>
 
         

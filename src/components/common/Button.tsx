@@ -6,21 +6,27 @@ interface ButtonProps {
     label: string;
     disabled?: boolean;
     type? : string;
+    status?: string;
 }
 
 const buttonTypes: { [key: string]: string } = {
     outline: 'border border-1 border-accent-black hover:bg-accent-gray/10 ',
-    main: 'bg-main-gray text-[#FFFFFF]'
+    main: 'bg-main-gray text-[#FFFFFF]',
 };
 
+const buttonStatus:  { [key: string]: string } = {
+    alert: 'bg-alert-red text-[#FFFFFF] hover:bg-alert-red '
+}
 
-const Button: React.FC<ButtonProps> = ({ onClick, label, disabled = false, type = '' }) => {
+
+const Button: React.FC<ButtonProps> = ({ onClick, label, disabled = false, type = '', status = '' }) => {
 
     const typeClass = useMemo(()=> {return buttonTypes[type] || ''}, [type]);
+    const statusClass = useMemo(()=> {return buttonStatus[status] || ''}, [status]);
     
     
     return (
-        <button className={`w-full min-h-14 rounded-lg font-bold   ${typeClass}`} onClick={onClick} disabled={disabled}>
+        <button className={`w-full min-h-14 rounded-lg font-bold   ${typeClass} ${statusClass}`} onClick={onClick} disabled={disabled}>
             {label}
         </button>
     );
