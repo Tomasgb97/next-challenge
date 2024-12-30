@@ -29,7 +29,7 @@ const Catalog: React.FC<CatalogProps> = async({genre, page = '1'}) => {
 
     return (
   
-        <div className='w-full'>
+        <div data-testid='container' className='w-full'>
         <GenreSection filters={categories}/>
         <div className='py-7'>    
           <Container>
@@ -39,8 +39,8 @@ const Catalog: React.FC<CatalogProps> = async({genre, page = '1'}) => {
         </Container>
         </div>
           {totalPages > parseInt(page) && <div className='w-full flex justify-center items-center'>
-            <Link className='w-[40%] p-3' href={`/?${params}`}>
-            <Button type='main' label='See More '></Button></Link>
+            <Link  className='w-[40%] p-3' href={`/?${params}`}>
+            <Button data-name="seeMoreButton"  type='main' label='See More'></Button></Link>
             
           </div>}
         </div>
