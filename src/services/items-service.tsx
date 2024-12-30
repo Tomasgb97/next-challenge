@@ -3,6 +3,8 @@ interface GetItemsProps {
     page?: string;
 }
 
+const BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000/'
+
 const getItems = async({genre = null, page = '1'}: GetItemsProps)=>{
 
    try{
@@ -13,7 +15,7 @@ const getItems = async({genre = null, page = '1'}: GetItemsProps)=>{
     if(page){
         params.append('page', page)
     }
-    const url = `${process.env.API_BASE_URL}/api/games?${params.toString()}`;
+    const url = `${BASE_URL}/api/games?${params.toString()}`;
     
     const response = await fetch(url, {
         method: 'GET',
